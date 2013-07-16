@@ -79,37 +79,6 @@ namespace RobotWars.Unit.Tests
 			Assert.That(GetCurrentPosition(), Is.EqualTo("5 1 E"));
 		}
 
-		[Test]
-		public void Should_parse_X_pos_from_an_initial_position_command() {
-			SendCommandsToRobot(new[]
-			{
-				"1 2 N"
-			});
-
-			Assert.That(_robot.RobotPosition.X, Is.EqualTo(1));
-		}
-
-		[Test]
-		public void Should_parse_Y_pos_from_an_initial_position_command() {
-			SendCommandsToRobot(new[]
-			{
-				"1 2 N"
-			});
-
-			Assert.That(_robot.RobotPosition.Y, Is.EqualTo(2));
-		}
-
-		[Test]
-		public void Should_parse_current_heading_from_an_initial_position_command() {
-
-			SendCommandsToRobot(new[]
-			{
-				"1 2 N"
-			});
-
-
-			Assert.That(_robot.Heading, Is.EqualTo('N'));
-		}
 
 		[Test]
 		public void Should_turn_left() {

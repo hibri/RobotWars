@@ -4,9 +4,10 @@ namespace RobotWars
 {
 	public class Robot
 	{
-		private readonly RobotRotator _robotRotator;
-		private RobotPosition _robotPosition;
 		private readonly RobotMover _robotMover;
+		private readonly RobotRotator _robotRotator;
+		private char _heading;
+		private RobotPosition _robotPosition;
 
 		public Robot(RobotRotator robotRotator, RobotMover robotMover) {
 			_robotRotator = robotRotator;
@@ -14,20 +15,14 @@ namespace RobotWars
 			_robotMover = robotMover;
 		}
 
-		public char Heading { get; set; }
-
-		public RobotPosition RobotPosition {
-			get { return _robotPosition; }
-		}
-
 		public void ParseMove(string moves) {
 			for (int currentMoveIndex = 0; currentMoveIndex < moves.Length; currentMoveIndex++) {
 				char currentMove = moves[currentMoveIndex];
 				if (currentMove == 'M') {
-					_robotMover.Move(Heading, _robotPosition);
+					_robotMover.Move(_heading, _robotPosition);
 				}
 				else {
-					Heading = _robotRotator.ChangeHeading(currentMove, Heading);
+					_heading = _robotRotator.ChangeHeading(currentMove, _heading);
 				}
 			}
 		}
@@ -39,11 +34,11 @@ namespace RobotWars
 				X = Int32.Parse(initialPositionCommandParts[0]),
 				Y = Int32.Parse(initialPositionCommandParts[1])
 			};
-			Heading = Convert.ToChar(initialPositionCommandParts[2]);
+			_heading = Convert.ToChar(initialPositionCommandParts[2]);
 		}
 
 		public string GetCurrentPosition() {
-			return string.Format("{0} {1} {2}", _robotPosition.X, _robotPosition.Y, Heading);
+			return string.Format("{0} {1} {2}", _robotPosition.X, _robotPosition.Y, _heading);
 		}
 	}
 }
