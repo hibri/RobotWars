@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace RobotWars.Unit.Tests
 {
-	internal class RobotRotator
+	public class RobotRotator
 	{
 		private readonly Dictionary<char, Dictionary<char, char>> _directionChangeRules;
 

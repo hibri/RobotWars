@@ -2,7 +2,7 @@
 
 namespace RobotWars.Unit.Tests
 {
-	internal class RobotPosition
+	public class RobotPosition
 	{
 		public int X;
 		public int Y;

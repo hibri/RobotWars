@@ -2,7 +2,7 @@
 
 namespace RobotWars.Unit.Tests
 {
-	internal class Robot
+	public class Robot
 	{
 		private readonly RobotRotator _robotRotator;
 		private RobotPosition _robotPosition;
@@ -20,26 +20,20 @@ namespace RobotWars.Unit.Tests
 			get { return _robotPosition; }
 		}
 
-		public void ParseCommands(string[] commands) {
-			ParseInitialPosition(commands[0]);
-			if (commands.Length == 2) {
-				Move(commands[1]);
-			}
-		}
-
-		private void Move(string moves) {
+		public void ParseMove(string moves) {
+			char currentMove;
 			for (int currentMoveIndex = 0; currentMoveIndex < moves.Length; currentMoveIndex++) {
-				;
-				if (moves[currentMoveIndex] == 'M') {
+				currentMove = moves[currentMoveIndex];
+				if (currentMove == 'M') {
 					_robotMover.Move(Heading, _robotPosition);
 				}
 				else {
-					Heading = _robotRotator.ChangeHeading(moves[currentMoveIndex], Heading);
+					Heading = _robotRotator.ChangeHeading(currentMove, Heading);
 				}
 			}
 		}
 
-		private void ParseInitialPosition(string initialPositionInput) {
+		public void ParsePosition(string initialPositionInput) {
 			string[] initialPositionCommandParts = initialPositionInput.Split(' ');
 			_robotPosition = new RobotPosition
 			{
@@ -52,5 +46,11 @@ namespace RobotWars.Unit.Tests
 		public string GetCurrentPosition() {
 			return string.Format("{0} {1} {2}", _robotPosition.X, _robotPosition.Y, Heading);
 		}
+	}
+
+	public class RobotConsole
+	{
+
+		
 	}
 }

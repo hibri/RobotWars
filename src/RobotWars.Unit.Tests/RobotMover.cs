@@ -1,6 +1,6 @@
 namespace RobotWars.Unit.Tests
 {
-	internal class RobotMover
+	public class RobotMover
 	{
 		public void Move(char currentHeading, RobotPosition currentRobotPosition) {
 			switch (currentHeading) {

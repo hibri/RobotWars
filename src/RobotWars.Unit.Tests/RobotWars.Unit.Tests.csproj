@@ -49,8 +49,10 @@
     <Compile Include="RobotPosition.cs" />
     <Compile Include="RobotMover.cs" />
     <Compile Include="RobotMoverTests.cs" />
-    <Compile Include="RobotWarConsoleTests.cs" />
+    <Compile Include="RobotTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RobotWarConsole.cs" />
+    <Compile Include="RobotWarConsoleTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
