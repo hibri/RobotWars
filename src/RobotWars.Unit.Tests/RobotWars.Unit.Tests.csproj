@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Robot.cs" />
+    <Compile Include="RobotDirectionChangeHandler.cs" />
     <Compile Include="RobotWarConsoleTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -2,47 +2,78 @@
 
 namespace RobotWars.Unit.Tests
 {
-    [TestFixture]
+	[TestFixture]
 	public class RobotWarConsoleTests
-    {
-	    [Test]
-	    public void Robot_should_report_current_position() {
-		    
-			var robot1 = new Robot();
-		    
-			robot1.ParseCommands(new []{"1 2 N"});
+	{
+		private Robot _robot;
 
-		    Assert.That(robot1.GetCurrentPosition(), Is.EqualTo("1 2 N"));
-	    }
-
-	    [Test]
-	    public void Should_parse_X_pos_from_an_initial_position_command() {
-		    
-			var robot = new Robot();
-		    
-			robot.ParseCommands(new []{"1 2 N"});
-
-		    Assert.That(robot.X, Is.EqualTo(1));
-	    }
-
-	    [Test]
-		public void Should_parse_Y_pos_from_an_initial_position_command() {
-		    
-			var robot = new Robot();
-
-		    robot.ParseCommands(new[] { "1 2 N" });
-
-		    Assert.That(robot.Y, Is.EqualTo(2));
+		[SetUp]
+		public void SetUp() {
+			_robot = new Robot(new RobotDirectionChangeHandler());
 		}
 
 		[Test]
-		public void Should_parse_current_heading_from_an_initial_position_command()
-		{
-			var robot = new Robot();
+		public void Robot_should_report_current_position() {
+
+			_robot.ParseCommands(new[] {"1 2 N"});
+
+			Assert.That(_robot.GetCurrentPosition(), Is.EqualTo("1 2 N"));
+		}
+
+		[Test]
+		public void Should_move_one_step_east() {
+
+			_robot.ParseCommands(new[] {"1 2 E", "M"});
+
+			Assert.That(_robot.GetCurrentPosition(), Is.EqualTo("2 2 E"));
+		}
+
+		[Test]
+		public void Should_move_one_step_north() {
+
+			_robot.ParseCommands(new[] {"1 2 N", "M"});
+
+			Assert.That(_robot.GetCurrentPosition(), Is.EqualTo("1 3 N"));
+		}
+
+		[Test]
+		public void Should_parse_X_pos_from_an_initial_position_command() {
 			
-			robot.ParseCommands(new[] { "1 2 N" });
+			_robot.ParseCommands(new[] {"1 2 N"});
+
+			Assert.That(_robot.X, Is.EqualTo(1));
+		}
+
+		[Test]
+		public void Should_parse_Y_pos_from_an_initial_position_command() {
+			
+			_robot.ParseCommands(new[] {"1 2 N"});
+
+			Assert.That(_robot.Y, Is.EqualTo(2));
+		}
+
+		[Test]
+		public void Should_parse_current_heading_from_an_initial_position_command() {
+			var robot = new Robot(new RobotDirectionChangeHandler());
+
+			robot.ParseCommands(new[] {"1 2 N"});
 
 			Assert.That(robot.Heading, Is.EqualTo("N"));
 		}
-    }
+
+		[Test]
+		public void Should_turn_left() {
+			_robot.ParseCommands(new[] {"1 2 E", "L"});
+
+			Assert.That(_robot.GetCurrentPosition(), Is.EqualTo("1 2 N"));
+		}
+
+		[Test]
+		public void Should_turn_right() {
+			
+			_robot.ParseCommands(new[] {"1 2 E", "R"});
+
+			Assert.That(_robot.GetCurrentPosition(), Is.EqualTo("1 2 S"));
+		}
+	}
 }
