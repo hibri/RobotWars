@@ -7,14 +7,14 @@ namespace RobotWars
 {
 	public class RobotWarConsole
 	{
-		private readonly List<Robot> _robots = new List<Robot>();
 		private static readonly Regex InitialPositionRegex = new Regex(@"^[\d]+ [\d]+ [NESW]$");
 		private static readonly Regex MoveRegex = new Regex(@"^[MLR]+$");
+		private readonly List<Robot> _robots = new List<Robot>();
 		private Robot _robot;
 
 		public void ParseInput(string line) {
-			if(InitialPositionRegex.IsMatch(line)) {
-				var robot = CreateRobot();
+			if (InitialPositionRegex.IsMatch(line)) {
+				Robot robot = CreateRobot();
 				robot.ParsePosition(line);
 				_robots.Add(robot);
 			}

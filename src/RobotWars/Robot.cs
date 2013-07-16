@@ -17,7 +17,7 @@ namespace RobotWars
 
 		public void ParseMove(string moves) {
 			for (int currentMoveIndex = 0; currentMoveIndex < moves.Length; currentMoveIndex++) {
-				char currentMove = moves[currentMoveIndex];
+				var currentMove = moves[currentMoveIndex];
 				if (currentMove == 'M') {
 					_robotMover.Move(_heading, _robotPosition);
 				}
