@@ -2,16 +2,21 @@ namespace RobotWars.Unit.Tests
 {
 	internal class RobotPositionChangeHandler
 	{
-		public RobotPosition Move(char currentHeading, RobotPosition currentRobotPosition) {
+		public void Move(char currentHeading, RobotPosition currentRobotPosition) {
 			switch (currentHeading) {
 				case 'N':
-					currentRobotPosition.Y++;
+					currentRobotPosition.Up();
 					break;
 				case 'E':
-					currentRobotPosition.X++;
+					currentRobotPosition.Right();
+					break;
+				case 'W':
+					currentRobotPosition.Left();
+					break;
+				case 'S':
+					currentRobotPosition.Down();
 					break;
 			}
-			return currentRobotPosition;
 		}
 	}
 }
