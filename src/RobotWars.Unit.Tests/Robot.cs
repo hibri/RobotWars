@@ -31,7 +31,7 @@ namespace RobotWars.Unit.Tests
 			for (int currentMoveIndex = 0; currentMoveIndex < moves.Length; currentMoveIndex++) {
 				;
 				if (moves[currentMoveIndex] == 'M') {
-					_robotPosition = _robotPositionChangeHandler.ChangePosition(Heading, RobotPosition);
+					_robotPosition = _robotPositionChangeHandler.Move(Heading, RobotPosition);
 				}
 				else {
 					Heading = _robotHeadingChangeHandler.ChangeHeading(moves[currentMoveIndex], Heading);
