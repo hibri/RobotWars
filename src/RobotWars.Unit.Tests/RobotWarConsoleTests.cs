@@ -9,7 +9,7 @@ namespace RobotWars.Unit.Tests
 
 		[SetUp]
 		public void SetUp() {
-			_robot = new Robot(new RobotHeadingChangeHandler());
+			_robot = new Robot(new RobotHeadingChangeHandler(), new RobotPositionChangeHandler());
 		}
 
 		[Test]
@@ -41,7 +41,7 @@ namespace RobotWars.Unit.Tests
 			
 			_robot.ParseCommands(new[] {"1 2 N"});
 
-			Assert.That(_robot.X, Is.EqualTo(1));
+			Assert.That(_robot.RobotPosition.X, Is.EqualTo(1));
 		}
 
 		[Test]
@@ -49,12 +49,12 @@ namespace RobotWars.Unit.Tests
 			
 			_robot.ParseCommands(new[] {"1 2 N"});
 
-			Assert.That(_robot.Y, Is.EqualTo(2));
+			Assert.That(_robot.RobotPosition.Y, Is.EqualTo(2));
 		}
 
 		[Test]
 		public void Should_parse_current_heading_from_an_initial_position_command() {
-			var robot = new Robot(new RobotHeadingChangeHandler());
+			var robot = new Robot(new RobotHeadingChangeHandler(), new RobotPositionChangeHandler());
 
 			robot.ParseCommands(new[] {"1 2 N"});
 
