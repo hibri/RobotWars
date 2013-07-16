@@ -44,11 +44,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Robot.cs" />
-    <Compile Include="RobotHeadingChangeHandler.cs" />
-    <Compile Include="RobotHeadingChangeHandlerTests.cs" />
+    <Compile Include="RobotRotator.cs" />
+    <Compile Include="RobotRotatorTests.cs" />
     <Compile Include="RobotPosition.cs" />
-    <Compile Include="RobotPositionChangeHandler.cs" />
-    <Compile Include="RobotPositionChangeHandlerTests.cs" />
+    <Compile Include="RobotMover.cs" />
+    <Compile Include="RobotMoverTests.cs" />
     <Compile Include="RobotWarConsoleTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

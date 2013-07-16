@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace RobotWars.Unit.Tests
 {
-	internal class RobotHeadingChangeHandler
+	internal class RobotRotator
 	{
 		private readonly Dictionary<char, Dictionary<char, char>> _directionChangeRules;
 
@@ -23,7 +23,7 @@ namespace RobotWars.Unit.Tests
 			{'W', 'N'}
 		};
 
-		public RobotHeadingChangeHandler() {
+		public RobotRotator() {
 			_directionChangeRules = new Dictionary<char, Dictionary<char, char>>
 			{
 				{'R', _headingChangesToTheRight},

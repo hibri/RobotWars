@@ -4,14 +4,14 @@ namespace RobotWars.Unit.Tests
 {
 	internal class Robot
 	{
-		private readonly RobotHeadingChangeHandler _robotHeadingChangeHandler;
+		private readonly RobotRotator _robotRotator;
 		private RobotPosition _robotPosition;
-		private readonly RobotPositionChangeHandler _robotPositionChangeHandler;
+		private readonly RobotMover _robotMover;
 
-		public Robot(RobotHeadingChangeHandler robotHeadingChangeHandler, RobotPositionChangeHandler robotPositionChangeHandler) {
-			_robotHeadingChangeHandler = robotHeadingChangeHandler;
+		public Robot(RobotRotator robotRotator, RobotMover robotMover) {
+			_robotRotator = robotRotator;
 			_robotPosition = new RobotPosition();
-			_robotPositionChangeHandler = robotPositionChangeHandler;
+			_robotMover = robotMover;
 		}
 
 		public char Heading { get; set; }
@@ -23,18 +23,18 @@ namespace RobotWars.Unit.Tests
 		public void ParseCommands(string[] commands) {
 			ParseInitialPosition(commands[0]);
 			if (commands.Length == 2) {
-				ParseMoveInput(commands[1]);
+				Move(commands[1]);
 			}
 		}
 
-		private void ParseMoveInput(string moves) {
+		private void Move(string moves) {
 			for (int currentMoveIndex = 0; currentMoveIndex < moves.Length; currentMoveIndex++) {
 				;
 				if (moves[currentMoveIndex] == 'M') {
-					_robotPositionChangeHandler.Move(Heading, _robotPosition);
+					_robotMover.Move(Heading, _robotPosition);
 				}
 				else {
-					Heading = _robotHeadingChangeHandler.ChangeHeading(moves[currentMoveIndex], Heading);
+					Heading = _robotRotator.ChangeHeading(moves[currentMoveIndex], Heading);
 				}
 			}
 		}
