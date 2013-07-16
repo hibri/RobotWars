@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RobotWars.Unit.Tests", "src\RobotWars.Unit.Tests\RobotWars.Unit.Tests.csproj", "{75B02379-6228-44C1-A3F5-C4ADCBF5B2E0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RobotWars", "src\RobotWars\RobotWars.csproj", "{FF7A12E7-C1E9-40A0-98D3-AB122DAEED50}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{75B02379-6228-44C1-A3F5-C4ADCBF5B2E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75B02379-6228-44C1-A3F5-C4ADCBF5B2E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75B02379-6228-44C1-A3F5-C4ADCBF5B2E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF7A12E7-C1E9-40A0-98D3-AB122DAEED50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF7A12E7-C1E9-40A0-98D3-AB122DAEED50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF7A12E7-C1E9-40A0-98D3-AB122DAEED50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF7A12E7-C1E9-40A0-98D3-AB122DAEED50}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

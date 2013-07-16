@@ -1,4 +1,4 @@
-namespace RobotWars.Unit.Tests
+namespace RobotWars
 {
 	public class RobotMover
 	{

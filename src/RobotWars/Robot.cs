@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace RobotWars.Unit.Tests
+namespace RobotWars
 {
 	public class Robot
 	{
@@ -21,9 +21,8 @@ namespace RobotWars.Unit.Tests
 		}
 
 		public void ParseMove(string moves) {
-			char currentMove;
 			for (int currentMoveIndex = 0; currentMoveIndex < moves.Length; currentMoveIndex++) {
-				currentMove = moves[currentMoveIndex];
+				char currentMove = moves[currentMoveIndex];
 				if (currentMove == 'M') {
 					_robotMover.Move(Heading, _robotPosition);
 				}
@@ -46,11 +45,5 @@ namespace RobotWars.Unit.Tests
 		public string GetCurrentPosition() {
 			return string.Format("{0} {1} {2}", _robotPosition.X, _robotPosition.Y, Heading);
 		}
-	}
-
-	public class RobotConsole
-	{
-
-		
 	}
 }

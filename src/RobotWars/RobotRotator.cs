@@ -1,7 +1,6 @@
-using System;
 using System.Collections.Generic;
 
-namespace RobotWars.Unit.Tests
+namespace RobotWars
 {
 	public class RobotRotator
 	{
